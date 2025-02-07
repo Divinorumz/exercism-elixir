@@ -8,10 +8,10 @@ defmodule Rules do
   end
 
   def lose?(power_pellet_active?, touching_ghost?) do
-    power_pellet_active? or touching_ghost?
+    touching_ghost? and not power_pellet_active?
   end
 
   def win?(has_eaten_all_dots?, power_pellet_active?, touching_ghost?) do
-    has_eaten_all_dots? and power_pellet_active? not power_pellet_active? and touching_ghost?
+    has_eaten_all_dots? and (not touching_ghost? or power_pellet_active?)
   end
 end
